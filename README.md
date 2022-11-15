@@ -8,7 +8,7 @@
 **Instalation**
 
 - `Clone this repo in your home directory`
-- `git clone git@github.com:okadir/AutoGen.git ~/AutoGen/`
+- ```shell git clone git@github.com:okadir/AutoGen.git ~/AutoGen/```
 - add these folowing lines to your `.zshrc` file
 
 ```shell
