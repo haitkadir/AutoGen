@@ -22,5 +22,5 @@ alias class="bash $HOME/AutoGen/class.sh"
 
 **Usage**
 
--  To create exercise `exer  Exercise Name  ClassName`
+-  To create exercise `exer  ExerciseName  ClassName`
 -  To create class `class  ClassName`
