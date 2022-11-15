@@ -7,7 +7,7 @@
 
 **Instalation**
 
-- `Clone this repo in your home directory`
+- Clone this repo
 
 ```shell
 git clone git@github.com:okadir/AutoGen.git ~/AutoGen/
