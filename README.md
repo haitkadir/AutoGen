@@ -10,7 +10,7 @@
 - `Clone this repo in your home directory`
 
 ```shell
-	 git clone git@github.com:okadir/AutoGen.git ~/AutoGen/
+git clone git@github.com:okadir/AutoGen.git ~/AutoGen/
 ```
 - add these folowing lines to your `.zshrc` file
 
