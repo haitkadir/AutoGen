@@ -10,42 +10,49 @@ fi
 Name=$1
 UpperName=$(echo "$Name" | tr '[:lower:]' '[:upper:]')
 
+# ----------------- Header file ------------------------------------------------
 HEADER="#ifndef __"$UpperName"_H__
 #define __"$UpperName"_H__
 
 class $Name{
 private:
-    // your privite members here
+    // your Privite members here
+protected:
+    // your Protected members here
 public:
     $Name ();
     $Name (const $Name &a);
-    ~$Name ();
     $Name & operator = (const $Name &a);
+    ~$Name ();
 };
 
 #endif
 "
 
+# ----------------- Source file ------------------------------------------------
+
 SRC="#include \"$Name.hpp\"
 
-/*-----------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 $Name::$Name (){
-    // your implementation here
+    std::cout << \"$Name: Default constructor called!\" << std::endl;
 }
 
-/*-----------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 $Name::$Name (const $Name &a){
-    // your implementation here
+    std::cout << \"$Name: Copy constructor called!\" << std::endl;
 }
 
-/*-----------------------------------------------------*/
-$Name::~$Name (){
-    // your implementation here
-}
-
-/*-----------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 $Name & $Name::operator = (const $Name &a){
-    // your implementation here
+    if (this != &a){
+        std::cout << \"$Name: Copy assignment operator called!\" << std::endl;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+$Name::~$Name (){
+    std::cout << \"$Name: Destructor called!\" << std::endl;
 }
 "
 

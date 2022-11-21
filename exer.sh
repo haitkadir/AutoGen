@@ -6,10 +6,19 @@ if [ -z "$2" ]
 	exit 1
 fi
 
+if [ -d "$PWD/$1" ]
+then
+        echo "$1 Already Exist!"
+        exit 1
+fi
+
 Ex=$1
 Name=$2
 UpperName=$(echo "$Name" | tr '[:lower:]' '[:upper:]')
 LowerName=$(echo "$Name" | tr '[:upper:]' '[:lower:]')
+
+# ----------------- Makefile file ------------------------------------------------
+
 MAKEFILE=".PHONY: all clean fclean re
 
 CC = c++
@@ -47,44 +56,53 @@ fclean: clean
 re: fclean all
 "
 
+# ----------------- Header file ------------------------------------------------
 HEADER="#ifndef __"$UpperName"_H__
 #define __"$UpperName"_H__
 #include <iostream>
 
 class $Name{
 private:
-    // your privite members here
+    // your Privite members here
+protected:
+    // your Protected members here
 public:
     $Name ();
     $Name (const $Name &a);
-    ~$Name ();
     $Name & operator = (const $Name &a);
+    ~$Name ();
 };
 
 #endif
 "
+
+# ----------------- Source file ------------------------------------------------
 SRC="#include \"$Name.hpp\"
 
-/*--------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 $Name::$Name (){
-    // your implementation here
+    std::cout << \"$Name: Default constructor called!\" << std::endl;
 }
 
-/*--------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 $Name::$Name (const $Name &a){
-    // your implementation here
+    std::cout << \"$Name: Copy constructor called!\" << std::endl;
 }
 
-/*--------------------------------------------------------*/
-$Name::~$Name (){
-    // your implementation here
-}
-
-/*--------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 $Name & $Name::operator = (const $Name &a){
-    // your implementation here
+    if (this != &a){
+        std::cout << \"$Name: Copy assignment operator called!\" << std::endl;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+$Name::~$Name (){
+    std::cout << \"$Name: Destructor called!\" << std::endl;
 }
 "
+
+# ----------------- Main file ------------------------------------------------
 MAIN="#include \"$Name.hpp\"
 
 int main(void){
