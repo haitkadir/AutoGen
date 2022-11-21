@@ -33,7 +33,7 @@ OBJS = \$(SRCS:%.cpp=%.o)
 
 all: \$(NAME)
 
-%.o:%.cpp \$(SRCS) \$(HEADERS)
+%.o:%.cpp \$(HEADERS)
 	@\$(CC) \$(CFLAGS) \$(CPP_VERSION) -c $< -o \$@
 	@echo \"$< ==> \$@\"
 
