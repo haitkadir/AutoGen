@@ -80,13 +80,11 @@ public:
 SRC="#include \"$Name.hpp\"
 
 /*----------------------------------------------------------------------------*/
-$Name::$Name (){
-    std::cout << \"$Name: Default constructor called!\" << std::endl;
-}
+$Name::$Name () {}
 
 /*----------------------------------------------------------------------------*/
 $Name::$Name (const $Name &a){
-    std::cout << \"$Name: Copy constructor called!\" << std::endl;
+    *this = a;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -94,12 +92,11 @@ $Name & $Name::operator = (const $Name &a){
     if (this != &a){
         std::cout << \"$Name: Copy assignment operator called!\" << std::endl;
     }
+    return *this;
 }
 
 /*----------------------------------------------------------------------------*/
-$Name::~$Name (){
-    std::cout << \"$Name: Destructor called!\" << std::endl;
-}
+$Name::~$Name () {}
 "
 
 # ----------------- Main file ------------------------------------------------
